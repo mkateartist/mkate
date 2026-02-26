@@ -467,3 +467,10 @@ textarea{min-height:120px; resize:vertical}
 /* Safety: prevent horizontal overflow on mobile */
 html, body{overflow-x:hidden}
 img{max-width:100%; height:auto}
+
+/* Single-column grid helper */
+.grid-1{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
