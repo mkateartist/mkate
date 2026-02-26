@@ -6,7 +6,7 @@
   const fmtRub = (n)=> (n ? n.toLocaleString("ru-RU") + " ₽" : "—");
 
   // Telegram links
-  ["tgLink","tgLink2","mTg"].forEach(id=>{
+  ["tgLink","tgLinkHero","tgLink2","mTg"].forEach(id=>{
     const a = el(id);
     if(a){ a.href = tg; }
   });
@@ -48,10 +48,15 @@
       portfolio_kicker:"Фильтруй по темам — открой работу, чтобы увидеть детали.",
       shop_title:"Магазин",
       shop_kicker:"Оригиналы доступны — для заказа напиши в Telegram или через форму.",
+      shop_sort_label:"Сортировка",
+      shop_sort_newest:"Сначала новые",
+      shop_sort_price_desc:"Дороже → дешевле",
+      shop_sort_price_asc:"Дешевле → дороже",
+      shop_sort_year_desc:"По году (убыв.)",
       pricing_title:"Стоимость",
       pricing_p1_title:"Оригинальная работа",
-      pricing_p1_text:"Выбор из готовых работ из портфолио.",
-      pricing_p1_li1:"Размер и цена — в карточке работы",
+      pricing_p1_text:"Выбор из готовых работ в магазине.",
+      pricing_p1_li1:"Размер и цена - в карточке картины",
       pricing_p1_li2:"Можно подобрать в интерьер",
       pricing_p1_li3:"Фото/видео перед отправкой",
       pricing_p1_price:"от 6 000 ₽",
@@ -59,10 +64,10 @@
       pricing_p2_text:"По референсу/идее в моём стиле.",
       pricing_p2_li1:"Согласуем сюжет и размер",
       pricing_p2_li2:"Сроки — индивидуально",
-      pricing_p2_li3:"Предоплата по договорённости",
+      pricing_p2_li3:"Предоплата 50 %",
       pricing_p2_price:"по запросу",
       pricing_p3_title:"Оформление в раму",
-      pricing_p3_text:"Если нужно “под ключ”.",
+      pricing_p3_text:"",
       pricing_p3_li1:"Подбор паспарту/рамы",
       pricing_p3_li2:"Фото вариантов перед заказом",
       pricing_p3_li3:"Стоимость зависит от оформления",
@@ -90,8 +95,8 @@
       reviews_cta_tg:"Запросить примеры отзывов →",
       contacts_title:"Контакты",
       contacts_kicker:"Быстрее всего — в Telegram",
-      contacts_text:"Напиши, какая работа понравилась (номер из карточки) — и я отвечу по наличию/доставке/оформлению.",
-      contacts_cta_back:"Вернуться к портфолио",
+      contacts_text:"Напиши, какая работа понравилась  — и я отвечу по наличию/доставке/оформлению.",
+      contacts_cta_back:"В магазин",
       contacts_note:"Здесь можно добавить Instagram/сайт/почту.",
       form_kicker:"Форма заявки",
       form_send:"Отправить",
@@ -105,11 +110,11 @@
       // placeholders
       form_name:"Имя",
       form_contact:"Telegram / Email",
-      form_msg:"Сообщение (например: хочу работу №10, доставка в ...)",
+      form_msg:"Сообщение (например: хочу картину, доставка в ...)",
       comm_title:"Картины на заказ",
-      comm_lead:"Портреты, картины по фото и книжные иллюстрации. Сроки и детали — обсудим в личных сообщениях.",
+      comm_lead:"Портреты, картины по фото и книжные иллюстрации. Сроки и детали по договоренности.",
       comm_portrait_title:"Портрет на заказ",
-      comm_portrait_note:"Акварель или чёрно-белая живопись маслом.\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
+      comm_portrait_note:"\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
       comm_20x30:"20×30 см",
       comm_30x40:"30×40 см",
       comm_40x50:"40×50 см",
@@ -117,7 +122,7 @@
       comm_extra_face:"+1 лицо на лист — 7 000 ₽",
       comm_photo_title:"Картина по фото",
       comm_photo_text:"Материал по согласованию.\nСтоимость рассчитывается индивидуально в зависимости от размера и задачи.",
-      comm_book_title:"3) Иллюстрации к книге",
+      comm_book_title:"Иллюстрации к книге",
       comm_book_text:"Медиум по согласованию, 2D‑изображение.",
       comm_book_price_label:"Цена",
       comm_book_price_value:"6 000 ₽ за изображение",
@@ -129,14 +134,14 @@
       ach_group_2024_gm:"2024 — Grand Master, Moscow (Russia)",
       ach_group_2024_10th:"2024 — 10th Exhibition of Russian Watercolor Artists, Moscow (Russia)",
       ach_group_2024_tehran:"2024 — “Art And Point” 1st International Annual Watercolor Exhibition, Tehran (Iran)",
-      ach_group_2023_raaw:"2023 — RAAW, New York (USA)",
+      ach_group_2023_raaw:"",
       ach_group_2022_tretyakov:"2022 — Creative Environments, New Tretyakov Gallery, Moscow (Russia)",
       ach_note:"Полный список — на Artmajeur.",
       ach_solo_title:"Персональные выставки",
       ach_solo_2025:"2025 — Watercolor Worlds, Moscow (Russia)",
       ach_solo_2024:"2024 — “Through The Watercolor Window”, June, Moscow (Russia)",
-      ach_collections_title:"Постоянные коллекции",
-      ach_collections_2022:"2022 — Artsfashion Exhibition, Moscow (Russia)",
+      ach_collections_title:"",
+      ach_collections_2022:"",
       ach_press_title:"Публикации и пресса",
       ach_press_2023_gb:"2023 — Glamour Buff (USA)",
       ach_press_2023_js:"2023 — Just Summer On My Mind, Miami (USA)",
@@ -186,7 +191,7 @@
       pricing_p2_li3:"Prepayment by agreement",
       pricing_p2_price:"on request",
       pricing_p3_title:"Framing",
-      pricing_p3_text:"If you want it “turn‑key”.",
+      pricing_p3_text:"",
       pricing_p3_li1:"Mat & frame options",
       pricing_p3_li2:"Photos before ordering",
       pricing_p3_li3:"Depends on framing",
@@ -214,7 +219,7 @@
       contacts_title:"Contacts",
       contacts_kicker:"Fastest way — Telegram",
       contacts_text:"Tell me which piece you like (its number) — I’ll reply about availability, shipping and framing.",
-      contacts_cta_back:"Back to portfolio",
+      contacts_cta_back:"Go to shop",
       contacts_note:"Add Instagram / website / email here.",
       form_kicker:"Inquiry form",
       form_send:"Send",
@@ -232,7 +237,7 @@
       comm_title:"Commissions",
       comm_lead:"Portraits, paintings from photo, and book illustrations. Timing and details — via direct message.",
       comm_portrait_title:"Портрет на заказ",
-      comm_portrait_note:"Акварель или чёрно-белая живопись маслом.\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
+      comm_portrait_note:"\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
       comm_20x30:"20×30 cm",
       comm_30x40:"30×40 cm",
       comm_40x50:"40×50 cm",
@@ -252,14 +257,14 @@
       ach_group_2024_gm:"2024 — Grand Master, Moscow (Russia)",
       ach_group_2024_10th:"2024 — 10th Exhibition of Russian Watercolor Artists, Moscow (Russia)",
       ach_group_2024_tehran:"2024 — “Art And Point” 1st International Annual Watercolor Exhibition, Tehran (Iran)",
-      ach_group_2023_raaw:"2023 — RAAW, New York (USA)",
+      ach_group_2023_raaw:"",
       ach_group_2022_tretyakov:"2022 — Creative Environments, New Tretyakov Gallery, Moscow (Russia)",
       ach_note:"Full list on Artmajeur.",
       ach_solo_title:"Solo exhibitions",
       ach_solo_2025:"2025 — Watercolor Worlds, Moscow (Russia)",
       ach_solo_2024:"2024 — “Through The Watercolor Window”, June, Moscow (Russia)",
-      ach_collections_title:"Permanent collections",
-      ach_collections_2022:"2022 — Artsfashion Exhibition, Moscow (Russia)",
+      ach_collections_title:"",
+      ach_collections_2022:"",
       ach_press_title:"Publications & press",
       ach_press_2023_gb:"2023 — Glamour Buff (USA)",
       ach_press_2023_js:"2023 — Just Summer On My Mind, Miami (USA)",
@@ -303,11 +308,22 @@
   // Filters
   const filtersEl = el("filters");
   const galleryEl = el("gallery");
+  const shopFiltersEl = el("shopFilters");
+  const shopSortEl = el("shopSort");
   const shopEl = el("shopGrid");
+
+  if(shopSortEl){
+    shopSortEl.addEventListener("change", (e)=>{
+      activeShopSort = e.target.value;
+      renderShop();
+    });
+  }
 
   function uniq(arr){ return [...new Set(arr)]; }
 
   let activeFilter = "all";
+  let activeShopFilter = "all";
+  let activeShopSort = "newest";
 
   function categories(){
     const list = DATA.works.map(w => lang === "ru" ? w.category_ru : w.category_en);
@@ -354,7 +370,7 @@
 
     const title=document.createElement("p");
     title.className="title";
-    title.textContent=`#${w.id} — ${workTitle(w)}`;
+    title.textContent=`${workTitle(w)}`;
 
     const sub=document.createElement("p");
     sub.className="sub";
@@ -391,13 +407,48 @@
     list.forEach(w=>galleryEl.appendChild(createCard(w)));
   }
 
-  function renderShop(){
+  
+  function renderShopFilters(){
+    if(!shopFiltersEl) return;
+    shopFiltersEl.innerHTML = "";
+
+    const allBtn = document.createElement("button");
+    allBtn.className = "pill" + (activeShopFilter==="all" ? " active" : "");
+    allBtn.textContent = (lang==="ru") ? "Все" : "All";
+    allBtn.addEventListener("click", ()=>{ activeShopFilter="all"; renderShop(); });
+    shopFiltersEl.appendChild(allBtn);
+
+    categories().forEach(cat=>{
+      const b=document.createElement("button");
+      b.className="pill" + (activeShopFilter===cat ? " active" : "");
+      b.textContent=cat;
+      b.addEventListener("click", ()=>{ activeShopFilter=cat; renderShop(); });
+      shopFiltersEl.appendChild(b);
+    });
+  }
+
+  function parsePrice(w){ return Number(w.price_rub || 0); }
+
+  function sortShop(items){
+    const arr=[...items];
+    if(activeShopSort==="price_desc") arr.sort((a,b)=>parsePrice(b)-parsePrice(a));
+    else if(activeShopSort==="price_asc") arr.sort((a,b)=>parsePrice(a)-parsePrice(b));
+    else if(activeShopSort==="year_desc") arr.sort((a,b)=>(b.year||0)-(a.year||0));
+    else arr.sort((a,b)=>Number(a.id||0)-Number(b.id||0));
+    return arr;
+  }
+
+function renderShop(){
     if(!shopEl) return;
-    shopEl.innerHTML="";
-    // show 6 items max: most expensive + a mix
-    const sorted = [...DATA.works].sort((a,b)=>(b.price_rub||0)-(a.price_rub||0));
-    const picks = sorted.slice(0,6);
-    picks.forEach(w=>shopEl.appendChild(createCard(w)));
+    shopEl.innerHTML = "";
+
+    let items = [...DATA.works];
+    if(activeShopFilter!=="all"){
+      items = items.filter(w=>catOf(w)===activeShopFilter);
+    }
+
+    items = sortShop(items);
+    items.forEach(w=>shopEl.appendChild(createCard(w)));
   }
 
   // Modal
@@ -416,7 +467,7 @@
 
   function openModal(w){
     if(!modal) return;
-    mTitle.textContent = `#${w.id} — ${workTitle(w)}`;
+    mTitle.textContent = `${workTitle(w)}`;
     mMeta.textContent = workMeta(w) + " · " + catOf(w);
     mImg.src = w.images.art;
     mImg.alt = workTitle(w);
@@ -443,8 +494,8 @@
     }
 
     const extra = (lang==="ru")
-      ? `Текст для сообщения: «Здравствуйте! Хочу купить работу №${w.id} — ${w.title_ru}. Доставка в …»`
-      : `Message template: “Hi! I’d like to buy artwork #${w.id} — ${w.title_en}. Shipping to …”`;
+      ? `Текст для сообщения: «Здравствуйте! Хочу купить работу — ${w.title_ru}. Доставка в …»`
+      : `Message template: “Hi! I’d like to buy artwork  — ${w.title_en}. Shipping to …”`;
     mExtra.textContent = extra;
 
     mCopy.onclick = async ()=>{
@@ -501,6 +552,7 @@
 
   function renderAll(){
     renderFilters();
+    renderShopFilters();
     renderGallery();
     renderShop();
   }
