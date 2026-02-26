@@ -250,7 +250,7 @@
       comm_extra_face:"+1 face on the sheet — 7,000 ₽",
       comm_photo_title:"Картина по фото",
       comm_photo_text:"Материал по согласованию.\nСтоимость рассчитывается индивидуально в зависимости от размера и задачи.",
-      comm_book_title:"3) Book illustrations",
+      comm_book_title:"Book illustrations",
       comm_book_text:"Medium by agreement, 2D image.",
       comm_book_price_label:"Price",
       comm_book_price_value:"6,000 ₽ per image",
