@@ -116,7 +116,7 @@
       modal_write:"Написать в Telegram",
       modal_copy:"Скопировать текст",
       modal_framed:"Фото в раме",
-      footer_note:".",
+      footer_note:"",
       // placeholders
       form_name:"Имя",
       form_contact:"Telegram / Email",
@@ -249,7 +249,7 @@
       // placeholders
       form_name:"Name",
       form_contact:"Telegram / Email",
-      form_msg:"Message (e.g., I’d like artwork #10, shipping to ...)",
+      form_msg:"Message ",
       comm_title:"Commissions",
       comm_lead:"Portraits, paintings from photo, and book illustrations. Timing and details — via direct message.",
       comm_portrait_title:"Commissioned portrait",
