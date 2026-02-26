@@ -5,6 +5,14 @@
   const el = (id)=>document.getElementById(id);
   const fmtRub = (n)=> (n ? n.toLocaleString("ru-RU") + " ₽" : "—");
 
+  // Render safe line breaks for i18n strings that contain "\n".
+  const escapeHtml = (str) => String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
   // Telegram links
   ["tgLink","tgLinkHero","tgLink2","mTg"].forEach(id=>{
     const a = el(id);
@@ -74,9 +82,11 @@
       pricing_p3_price:"по запросу",
       delivery_title:"Доставка и оплата",
       delivery_pay_kicker:"Оплата",
-      delivery_pay_1:"Перевод / по договорённости",
-      delivery_pay_2:"Предоплата для заказных работ 50%",
-      delivery_pay_3:"Предоплата для работ из наличии перед отправкой 100%",
+      delivery_pay_1:"Transfer / as agreed",
+      delivery_pay_2:"Commissioned works: 50% deposit",
+      delivery_pay_3:"In-stock works: 100% before shipping",
+      delivery_pay_4:"Receipt/confirmation — on request",
+      delivery_pay_4:"Чек/подтверждение — по запросу",
       delivery_ship_kicker:"Доставка",
       delivery_ship_1:"Упаковка с защитой углов",
       delivery_ship_2:"По РФ: 350–500 ₽ (в зависимости от размера). Оплата по согласованию",
@@ -102,7 +112,7 @@
       form_send:"Отправить",
       
       modal_price:"Цена",
-      modal_price_note:"Чтобы купить — напиши в Telegram, указав номер работы.",
+      modal_price_note:"Чтобы купить — напиши в Telegram, указав название картины.",
       modal_write:"Написать в Telegram",
       modal_copy:"Скопировать текст",
       modal_framed:"Фото в раме",
@@ -113,15 +123,15 @@
       form_msg:"Сообщение (например: хочу картину, доставка в ...)",
       comm_title:"Картины на заказ",
       comm_lead:"Портреты, картины по фото и книжные иллюстрации. Сроки и детали по договоренности.",
-      comm_portrait_title:"Портрет на заказ",
-      comm_portrait_note:"\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
+      comm_portrait_title:"Commissioned portrait",
+      comm_portrait_note:"\nCreated from a photo, keeping the character and atmosphere of the person.",
       comm_20x30:"20×30 см",
       comm_30x40:"30×40 см",
       comm_40x50:"40×50 см",
       comm_50x60:"50×60 см",
       comm_extra_face:"+1 лицо на лист — 7 000 ₽",
-      comm_photo_title:"Картина по фото",
-      comm_photo_text:"Материал по согласованию.\nСтоимость рассчитывается индивидуально в зависимости от размера и задачи.",
+      comm_photo_title:"Painting from your photo",
+      comm_photo_text:"Medium is discussed individually.\nThe price is calculated depending on size and complexity.",
       comm_book_title:"Иллюстрации к книге",
       comm_book_text:"Медиум по согласованию, 2D‑изображение.",
       comm_book_price_label:"Цена",
@@ -203,9 +213,10 @@
       pricing_p3_price:"on request",
       delivery_title:"Delivery & Payment",
       delivery_pay_kicker:"Payment",
-      delivery_pay_1:"Перевод / по договорённости",
-      delivery_pay_2:"Предоплата для заказных работ 50%",
-      delivery_pay_3:"Предоплата для работ из наличии перед отправкой 100%",
+      delivery_pay_1:"Transfer / as agreed",
+      delivery_pay_2:"Commissioned works: 50% deposit",
+      delivery_pay_3:"In-stock works: 100% before shipping",
+      delivery_pay_4:"Receipt/confirmation — on request",
       delivery_ship_kicker:"Shipping",
       delivery_ship_1:"Protective packaging (corner protection)",
       delivery_ship_2:"Russia and international shipping — discussable",
@@ -230,7 +241,7 @@
       form_send:"Send",
       
       modal_price:"Price",
-      modal_price_note:"To buy — message me on Telegram and mention the artwork number.",
+      modal_price_note:"To buy — message me on Telegram and mention the painting title.",
       modal_write:"Message on Telegram",
       modal_copy:"Copy message",
       modal_framed:"Framed photo",
@@ -241,15 +252,15 @@
       form_msg:"Message (e.g., I’d like artwork #10, shipping to ...)",
       comm_title:"Commissions",
       comm_lead:"Portraits, paintings from photo, and book illustrations. Timing and details — via direct message.",
-      comm_portrait_title:"Портрет на заказ",
-      comm_portrait_note:"\nРабота создаётся по фотографии с сохранением характера и атмосферы образа.",
+      comm_portrait_title:"Commissioned portrait",
+      comm_portrait_note:"\nCreated from a photo, keeping the character and atmosphere of the person.",
       comm_20x30:"20×30 cm",
       comm_30x40:"30×40 cm",
       comm_40x50:"40×50 cm",
       comm_50x60:"50×60 cm",
       comm_extra_face:"+1 face on the sheet — 7,000 ₽",
-      comm_photo_title:"Картина по фото",
-      comm_photo_text:"Материал по согласованию.\nСтоимость рассчитывается индивидуально в зависимости от размера и задачи.",
+      comm_photo_title:"Painting from your photo",
+      comm_photo_text:"Medium is discussed individually.\nThe price is calculated depending on size and complexity.",
       comm_book_title:"Book illustrations",
       comm_book_text:"Medium by agreement, 2D image.",
       comm_book_price_label:"Price",
@@ -293,7 +304,12 @@
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-i18n]").forEach(node=>{
       const key = node.getAttribute("data-i18n");
-      node.textContent = t(key);
+      const value = t(key);
+      if(typeof value === 'string' && value.includes('\n')){
+        node.innerHTML = escapeHtml(value).replace(/\n/g,'<br>');
+      }else{
+        node.textContent = value;
+      }
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(node=>{
       const key = node.getAttribute("data-i18n-placeholder");
