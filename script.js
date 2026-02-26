@@ -234,7 +234,7 @@
       reviews_cta_tg:"Request review screenshots →",
       contacts_title:"Contacts",
       contacts_kicker:"Fastest way — Telegram",
-      contacts_text:"Tell me which piece you like (its number) — I’ll reply about availability, shipping and framing.",
+      contacts_text:"Tell me which piece you like — I’ll reply about availability, shipping and framing.",
       contacts_cta_back:"Go to shop",
       contacts_note:"Add Instagram / website / email here.",
       form_kicker:"Inquiry form",
@@ -245,7 +245,7 @@
       modal_write:"Message on Telegram",
       modal_copy:"Copy message",
       modal_framed:"Framed photo",
-      footer_note:"",
+      footer_note:" ",
       // placeholders
       form_name:"Name",
       form_contact:"Telegram / Email",
